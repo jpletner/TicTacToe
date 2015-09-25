@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="jquery-2.1.4.min.js"></script>
+    <script src="jquery.js"></script>
+    <title>Tic Tac Toe</title>
+  </head>
+
+  <body>
+    <div class="main" id='container'>
+
+
+
+<!-- SCORE BOARD: ROW 1 -->
+      <h1 class='level'>Tic Tac Toe</h1>
+      <h6>...it's make it take it</h6>
+
+
+          <div class="level input-group">
+            <span class="input-group-addon spanBoard" id="playerScoreBoard1">O won</span>
+            <span id="o_win" class="win_times input-group-addon">0</span>
+            <span class="input-group-addon spanBoard">time(s)</span>
+          </div>
+
+          <div class="level input-group">
+            <span class="input-group-addon spanBoard" id="playerScoreBoard2">X won</span>
+            <span id="x_win" class="win_times input-group-addon">0</span>
+            <span class="input-group-addon spanBoard">time(s)</span>
+          </div>
+
+          <div class="level input-group">
+            <span class="input-group-addon spanBoard"><strong>#Ties</strong></span>
+            <span id="ties" class="win_times input-group-addon">0</span>
+            <span class="input-group-addon spanBoard">time(s)</span>
+          </div>
+
+<!-- GAME STATUS -->
+      <h3 id="turn"></h3>
+
+<!-- GAME BOARD: ROW 2 -->
+      <div class="level">
+        <ul id="game">
+          <li id="one" class="btn btn-default" >+</li>
+          <li id="two" class="btn btn-default">+</li>
+          <li id="three" class="btn btn-default">+</li>
+          <li id="four" class="btn btn-default">+</li>
+          <li id="five" class="btn btn-default">+</li>
+          <li id="six" class="btn btn-default">+</li>
+          <li id="seven" class="btn btn-default">+</li>
+          <li id="eight" class="btn btn-default">+</li>
+          <li id="nine" class="btn btn-default">+</li>
+        </ul>
+      </div>
+
+<!-- RESTART BUTTON: ROW 3 -->
+      <div class="level">
+        <button class="btn btn-success">Restart</button>
+      </div>
+
+    </div>
+
+<!-- POPUP WINDOW -->
+    <div id="shade">
+      <div id="popup">
+
+        <!-- STAGE 1 -->
+        <div id='stage1' class='stagePop'>
+          <h1>Welcome to <span class='muted'>make it or take it</span> Tic Tac Toe!</h1>
+          <button id="end-stage1" type="submit" class='btn btn-primary center-block btnANI'>Enter</button>
+        </div>
+
+        <!-- STAGE 2 -->
+        <div id="stage2" class='stagePop'>
+          <h1>Enter Player 1:</h1>
+           <input type="text" placeholder="player1" name="player1" autofocus>
+           <button id="end-stage2" class='btn btn-primary btnANI center-block'>Enter</button>
+        </div>
+        <!-- STAGE 3 -->
+        <div id="stage3" class='stagePop'>
+          <h1>Enter Player 2 :</h1>
+            <input type="text" placeholder="player2" name="player2" autofocus>
+            <button id="end-stage3" class='btn btn-primary btnANI center-block'>Enter</button>
+        </div>
+
+        <!-- STAGE 4 -->
+        <div id="stage4" class='stagePop'>
+          <h1 id="regTitle">Flip To See Who Goes First</h1>
+          <div class="image">
+            <img class="heads" src="http://www.goldcoinhistory.com/wp-content/uploads/2012/05/GP_US_1850_C_Liberty_Head_One_Dollar_Type_I_obverse.jpeg"/>
+          </div>
+          <button id="flip" class='btn btn-danger btnANI center-block'>Flip!</button>
+          <button id="play" class='btn btn-primary btnANI center-block'>Play!</button>
+
+
+        <!-- STAGE 5 -->
+          <div id="stage5" class='stagePop'>
+            <h2>Who Goes First?</h2>
+            <span id="player1Btn" class='btnANI playerBtn'>Player 1</span>
+            <span id="player2Btn" class='btnANI playerBtn'>Player 2</span>
+          </div>
+        </div> <!-- THIS ENDS STAGE 4 AND 5 -->
+
+      </div>
+    </div> <!-- THIS ENDS SHADE & POPUP -->
+
+
+  </body>
+<html>

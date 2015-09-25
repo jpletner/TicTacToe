@@ -1,0 +1,305 @@
+/* INCLUDES */
+@font-face {
+    font-family: 'Starlight';
+    src: url(Starlight.ttf);
+}
+
+
+/* MAIN */
+.main {
+  text-align: center;
+  width: 100%;
+  margin: auto;
+}
+
+#container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.level {
+  text-align: center;
+  display: block;
+  width: 30%;
+  margin: 1% auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+h6 {
+  opacity: .5;
+  padding: 0;
+  margin-top: -.85%;
+}
+
+
+/* GAME BOARD*/
+#game {
+  max-width: 40%;
+  min-width: 40%;
+  margin: auto;
+  padding-left: 0;
+}
+
+#game li {
+    margin: 2%;
+    font-size: 3em;
+    line-height: 1.5em;
+    width: 1.5em;
+    font-family: 'Starlight';
+    color: #449d44;
+    border-color: #398439;
+}
+
+/* DISABLE STYLES */
+#container .disable {
+  text-transform: uppercase;
+}
+
+li.disable {
+  color: #fff
+}
+
+/* RESTART BUTTON*/
+.level button {
+  padding: 5px 10px 5px 10px;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2vmax;
+  cursor: pointer;
+  text-transform: uppercase;
+  width: 35%;
+  margin: 0 auto;
+}
+
+/* SCOREBOARD */
+.win_times {
+  background: #fff;
+  width: 50%;
+}
+
+.spanBoard {
+  width: 50%;
+}
+#playerScoreBoard1 {
+  background-color: #337ab7;
+  color: white;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+#playerScoreBoard2 {
+  background-color: #31b0d5;
+  color: white;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+/* GAME STATUS */
+#turn {
+  text-transform: capitalize;
+}
+
+/* ----- o(^.^)o ------ */
+/* POPUP WINDOW STYLES */
+#shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .75);
+}
+
+#popup {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background-color: white;
+  border: 5px solid #f8f8f8;
+  box-shadow: 10px 10px 10px #000000;
+  border-radius: 10px;
+  z-index: 2;
+  text-align: center;
+}
+
+#popup img {
+  display: block;
+  margin: 3vmax auto;
+  width: 15vmax;
+  height: auto;
+}
+
+#popup h1 {
+  text-align: center;
+  position: relative;
+  font-size: 4vmax;
+}
+
+#popup h2 {
+  text-align: center;
+  position: relative;
+  font-size: 3vmax;
+  margin-bottom: 3vmax;
+}
+
+#popup input {
+  font-size: 3vmax;
+  margin: 5vmax auto;
+}
+#popup .muted {
+  color: rgba(0, 0, 0, 0.5);
+  font-style: italic;
+  text-decoration: underline;
+}
+
+/* BUTTTTTONS */
+.btnANI {
+  text-align: center;
+  width: 15vmax;
+  height: 15vmax;
+  position: inherit;
+  bottom: 2vmax;
+  left: 42.5vmax;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  font-size: 4vmax;
+  -webkit-box-shadow: 0px 4px 11px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0px 4px 11px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 4px 11px 0px rgba(50, 50, 50, 0.75);
+  outline: none !important;
+  -webkit-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+
+.btnANI:hover {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50vmax;
+  -webkit-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+
+.playerBtn {
+  background-color: rgba(255, 0, 0, 0.7);;
+  margin: 2vmax;
+  padding: 1vmax;
+  text-align: center;
+  font-size: 3vmax;
+  border-radius: 5vmax;
+  color: white;
+  font-weight: 600;
+  height: 50vmax;
+}
+
+#play {
+  display: none;
+}
+
+/* STAGES */
+.stagePop {
+  width: 100%;
+  height: 100%;
+}
+
+#stage1 h1 {
+  margin-bottom: 10%;
+}
+
+#stage2 {
+  display: none;
+}
+#stage2 button {
+  display: block;
+}
+
+#stage3 {
+  display: none;
+}
+
+#stage4 {
+  display: none;
+}
+
+#stage5 {
+  display: none;
+}
+
+
+
+
+
+
+
+/* BEGIN MEDIA QUERIES */
+@media screen and (max-width: 1900px) {
+    .level {
+        width: 40%;
+        background-color: white;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .level {
+        width: 50%;
+        background-color: lightblue;
+    }
+}
+@media screen and (max-width: 1125px) {
+    .level {
+        width: 60%;
+        background-color: lightyellow;
+    }
+}
+@media screen and (max-width: 950px) {
+    .level {
+        width: 70%;
+        background-color: red;
+    }
+}
+@media screen and (max-width: 825px) {
+    .level {
+        width: 85%;
+        background-color: blue;
+    }
+}
+@media screen and (max-width: 725px) {
+    .level {
+        width: 95%;
+        background-color: green;
+    }
+}
+@media screen and (max-width: 675px) {
+    .level {
+        width: 100%;
+        background-color: pink;
+    }
+}
+@media screen and (max-width: 560px) {
+    .level {
+        background-color: grey;
+    }
+    #game {
+      max-width: 55%;
+      min-width: 55%;
+    }
+
+}@media screen and (max-width: 510px) {
+    .level {
+        background-color: white;
+    }
+    #game {
+      max-width: 60%;
+      min-width: 60%;
+    }
+
+}
