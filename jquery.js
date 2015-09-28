@@ -2,53 +2,54 @@ $(document).ready(function() {
 //DECLARE VARIABLES
   var x = "x"
   var o = "o"
-  var count = 0;
-  var o_win = 0;
-  var x_win = 0;
-  var ties = 0;
-  var starter = 0;
-  var player1 = 0;
-  var player2 = 0;
-  var bar = 0;
+  var count = 0; //counts click, so a stalemate can be assessed
+  var o_win = 0; //tracks # of O or player1 wins
+  var x_win = 0; //tracks # of X or player2 wins
+  var ties = 0; //tracks # of stalemates
+  var starter = 0; //tracks who's turn it is for each click
+  var player1 = 0; //player1 name
+  var player2 = 0; //player2 name
+  var bar; //tracks who starts each game, populates #turn
+  var bar2;
 
 
 //LOAD PAGE TRIGGER - COIN FLIP POPUP
 
 
   $('#end-stage1').click(function(){
-    $('#stage1').hide();
-    $('#stage2').show();
+    $('#stage1').hide(); //hides coverpage
+    $('#stage2').show(); //requires player 1 name
   });
 
   $('#end-stage2').click(function(){
     if ($("input[name='player1']").val() == "") {
-      alert("Enter Player 1 Username");
+      alert("Enter Player 1 Username"); //requires input for player1 name
     } else {
-      player1 = $("input[name='player1']").val();
-      $("#player1Btn").html(player1);
-      $('#stage2').hide();
-      $('#stage3').show();
+      player1 = $("input[name='player1']").val(); //assigns input to player1 var
+      $("#player1Btn").html(player1); //populates player1Btn w/ player1 var
+      $('#stage2').hide(); //hides enter player 1 name screen
+      $('#stage3').show(); //shows enter player 2 name screen
     }
   });
 
   $('#end-stage3').click(function(){
     if ($("input[name='player2']").val() == "") {
-      alert("Enter Player 2 Username");
+      alert("Enter Player 2 Username"); //requires input for player2 name
     } else {
-      player2 = $("input[name='player2']").val();
-      $("#player2Btn").html(player2);
-      $('#stage3').hide();
-      $('#stage4').show();
+      player2 = $("input[name='player2']").val(); //assigns input to player2 var
+      $("#player2Btn").html(player2); //populates player1Btn w/ player2 var
+      $('#stage3').hide(); //hides enter player 2 name screen
+      $('#stage4').show(); //shows flip screen
     }
   });
 
   //Stage 4
 
-  $('#flip').click(flipMe);
+  $('#flip').click(flipMe); ///runs coin flip function when flip button is clicked
 
   function flipMe(){
     var flip = ["Heads", "Tails"];
-    var side = flip[Math.floor(Math.random()*flip.length)];
+    var side = flip[Math.floor(Math.random()*flip.length)]; //randomly selects heads or tails
 
     if (side == "Heads"){
       $('#regTitle').html("You Got " + side);
@@ -59,17 +60,19 @@ $(document).ready(function() {
     }
 
     $(this).hide();
-    $('#stage5').show();
+    $('#stage5').show(); //shows who is first screen
 
     };
 
-    $('#player1Btn').click(function(){
+    $('#player1Btn').click(function(){ //assigns player 1 as starter
       $('#shade').hide();
       $('#popup').hide();
       $('#playerScoreBoard1').html(player1);
       $('#playerScoreBoard2').html(player2);
       bar = player1;
-      $('#turn').append(bar + " Starts!");
+      bar2 = player2;
+      $('#turn').text(bar + " Goes First!");
+
     });
 
     $('#player2Btn').click(function(){
@@ -78,7 +81,9 @@ $(document).ready(function() {
       $('#playerScoreBoard2').html(player1);
       $('#playerScoreBoard1').html(player2);
       bar = player2;
-      $('#turn').append(bar + " Starts!");
+      bar2 = player1;
+      $('#turn').text(bar + " Goes First!");
+
     });
 
 
@@ -110,7 +115,7 @@ $(document).ready(function() {
         || $("#one").hasClass('o') && $("#five").hasClass('o') && $("#nine").hasClass('o')
         || $("#three").hasClass('o') && $("#five").hasClass('o') && $("#seven").hasClass('o'))
         {
-          alert(player1 + ' wins')
+          alert(bar + ' wins')
           count = 0
           starter = 0
           o_win++
@@ -121,10 +126,11 @@ $(document).ready(function() {
           $("#game li").removeClass('x')
           $("#game li").removeClass('btn-primary')
           $("#game li").removeClass('btn-info')
+          $('#turn').text(bar + " Starts!");
         }
         else if ( count == 9)
         {
-          alert(player1 + "..." + player2 + "... You guys sucks...")
+          alert(player1 + "..." + player2 + "... You guys suck...")
           count = 0;
           ties++
           $('#ties').text(ties)
@@ -135,6 +141,7 @@ $(document).ready(function() {
           $("#game li").removeClass('btn-primary')
           $("#game li").removeClass('btn-info')
         }
+
       } //end of O's turn
 
 
@@ -153,7 +160,7 @@ $(document).ready(function() {
         || $("#one").hasClass('x') && $("#five").hasClass('x') && $("#nine").hasClass('x')
         || $("#three").hasClass('x') && $("#five").hasClass('x') && $("#seven").hasClass('x'))
         {
-          alert(player2 + ' wins')
+          alert(bar2 + ' wins')
           count = 0
           starter = 1
           x_win++
@@ -164,11 +171,12 @@ $(document).ready(function() {
           $("#game li").removeClass('x')
           $("#game li").removeClass('btn-primary')
           $("#game li").removeClass('btn-info')
+          $('#turn').text(bar2 + " Starts!");
         }
         else if
           ( count == 9 )
         {
-          alert("Its a tie. Restart.")
+          alert(player1 + "..." + player2 + "... You guys suck...")
           count = 0;
           ties++
           $('#ties').text(ties)
@@ -178,19 +186,23 @@ $(document).ready(function() {
           $("#game li").removeClass('x')
           $("#game li").removeClass('btn-primary')
           $("#game li").removeClass('btn-info')
+
+
+
         }
       } //end of X's turn
 
-      if (starter === 0){
-        bar = player1;
-        $('#turn').text(bar + " Starts!");
-      } else {
-        bar = player2;
-        $('#turn').text(bar + " Starts!");
-      }
 
 
   });
+
+  if (starter == 0){
+    bar = player1;
+    $('#turn').text(bar + " Starts!");
+  } else {
+    bar = player2;
+    $('#turn').text(bar + " Starts!");
+  }
 
 
 
